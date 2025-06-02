@@ -75,6 +75,21 @@ climate-dashboard/
 └── README.md
 ```
 
+## About our dataset and Reflection on the Relevance of Visualizations in a Practical Context
+
+For more information about the dataset follow this link
+
+## https://isabel0216.github.io/CO2-DATA/ 
+
+### It includes
+
+- Interactive data filtering by country and year
+- Customizable column selection (up to 10 columns)
+- Sortable data tables
+- Detailed tooltips with column descriptions
+- Responsive design
+- Comprehensive codebook with data descriptions
+
 ## Data Sources
 
 The dashboard uses climate change and CO₂ emissions data from various global sources, processed and formatted for visualization purposes.
