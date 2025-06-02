@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change Dashboard</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-title">
+                    <i class="fas fa-globe-americas"></i>
+                    <h1>Climate Change Analysis Dashboard</h1>
+                </div>
+                <p class="header-description">Interactive visualization of global climate change indicators and CO₂ emissions</p>
+            </div>
+        </header>
+
+        <div class="main-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h2>Countries</h2>
+                <div class="country-controls">
+                    <div class="search-box">
+                        <input type="text" id="countrySearch" placeholder="Search countries...">
+                        <button id="clearSearch" class="clear-search" title="Clear search">×</button>
+                    </div>
+                    <div class="select-controls">
+                        <button id="selectAll">Select All</button>
+                        <button id="deselectAll">Deselect All</button>
+                    </div>
+                    <div class="selection-info">
+                        <span id="selectedCount">0</span> countries selected
+                    </div>
+                </div>
+                <div class="country-selector">
+                    <!-- Countries will be populated here -->
+                </div>
+                <div class="global-controls">
+                    <h3>Controls</h3>
+                    <div class="variable-selector">
+                        <label for="variable">Select Variable:</label>
+                        <select id="variable">
+                            <option value="co2_per_capita">CO₂ per capita</option>
+                            <option value="temperature_change_from_ghg">Temperature Change (GHG)</option>
+                            <option value="cumulative_co2">Cumulative CO₂</option>
+                            <option value="co2_growth_prct">CO₂ Growth %</option>
+                            <option value="share_global_co2">Global CO₂ Share</option>
+                        </select>
+                    </div>
+                    <div class="year-range">
+                        <label for="yearSlider">Year:</label>
+                        <input type="range" id="yearSlider" min="1750" max="2021" value="2021">
+                        <span id="yearDisplay">2021</span>
+                    </div>
+                    <button id="resetFilters">Reset Filters</button>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="viz-controls">
+                    <button class="viz-selector active" data-viz="map">World Map</button>
+                    <button class="viz-selector" data-viz="chart">Trend Analysis</button>
+                </div>
+                <div class="visualization-container">
+                    <div id="map-container" class="viz-panel active">
+                        <div id="map"></div>
+                    </div>
+                    <div id="chart-container" class="viz-panel">
+                        <canvas id="lineChart"></canvas>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <div class="authors-info">
+                    <span class="author">Lineth Dariana Villalba Dominiquett</span>
+                    <span class="separator">•</span>
+                    <span class="author">Isabel Sofia Buelvas De la Hoz</span>
+                    <span class="separator">•</span>
+                    <span class="author">Alejandro Patron Montero</span>
+                </div>
+                <div class="institution-info">
+                    Data Science Students - Universidad Tecnológica de Bolívar
+                </div>
+                <div class="copyright">
+                    © 2025 Climate Change Analysis Dashboard
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/dataLoader.js"></script>
+    <script src="js/mapVisualization.js"></script>
+    <script src="js/lineChartVisualization.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
